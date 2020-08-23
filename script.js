@@ -1,6 +1,6 @@
 let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
 let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
-let apiCall = "https://api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
+let apiCall = "api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
 let date = moment().format('YYYY' + '-' + 'MM' + '-' + 'DD')
 console.log(date)
 let hM = document.createElement('map.js');
@@ -20,7 +20,7 @@ $("#searchBtn").on("click", function () {
 
 function getLatLon(burrito) {
     console.log(city)
-    let queryURL = apiCall + "?q=" + burrito + "&appid=" + apiKey
+    let queryURL = apiCall + burrito + "&appid=" + apiKey
     $.ajax({
         url: queryURL,
         method: "GET",
