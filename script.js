@@ -1,12 +1,14 @@
-let apiKey = "93b75b830f3da96083a3b6252ba8705b"; //API KEY FOR WEATHER DATA
-let nasaAPI = "irUwmwRn4hX38ufW6j4F6Vln3GgkMqD9ZfWGlXBg"; //API KEY FOR NASA "EARTH" API
-let apiCall = "http://api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
+let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
+let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
+let apiCall = "https://api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
 let date = moment().format('YYYY' + '-' + 'MM' + '-' + 'DD')
 console.log(date)
 let hM = document.createElement('map.js');
 hM.src = "./map.js"
 document.head.appendChild(hM);
 let mLat, mLon;
+console.log("made initial call");
+
 
 
 
@@ -52,13 +54,16 @@ function performNasaCall(enchilada1, enchilada2, enchilada3) {
         console.log(lanSatURL);
         buildLanSatImg(lanSatURL, lanSatDateTime, pop);
         console.log(enchilada3);
-        console.log(pop);
+        console.log("line 57 pop " + pop);
+        getMap(mLat, mLon);     
+        $(window).trigger('resize');
     });
 
 }
 
 $(document).ajaxStop(function(){
    resize();
+
 });
 
 function buildLanSatImg(quesadilla1, quesadilla2, quesadilla3) {
@@ -69,7 +74,7 @@ function buildLanSatImg(quesadilla1, quesadilla2, quesadilla3) {
     $(".image").append("<img id=satImg src=" + quesadilla1 + ">");
     $("#lanSatImgHolder").append("<p>" + "Image taken : " + quesadilla2 + "</p>");
     $("#stats").append("<p>" + "Population : " + quesadilla3 + "</p>");
-    getMap(mLat, mLon);
+  
 }
 
 var openModal = $("#openBtn")
@@ -85,17 +90,18 @@ closeModal.on("click", function () {
 })
 
 
- function resize(){
-     console.log("resize event");
-     window.dispatchEvent(new Event('resize'));
+function resize(){
+
+    window.dispatchEvent(new Event('resize'));
+    console.log("resize event");
  }
 
 function init(){
     getLatLon("Tucson");
-    console.log("made initial call");
+
 }
 
-
+console.log("line 102");
 init();
 
 // function buildStats(empanada1, empanada2, empanada3) {
