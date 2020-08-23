@@ -1,6 +1,3 @@
-let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
-let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
-let apiCall = "https://api.openweathermap.org/data/2.5/forecast?q=" //API CALL BASED ON CITY NAME
 let date = moment().format('YYYY' + '-' + 'MM' + '-' + 'DD')
 console.log(date)
 let hM = document.createElement('map.js');
@@ -19,6 +16,8 @@ $("#searchBtn").on("click", function () {
 });
 
 function getLatLon(burrito) {
+    let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
+    let apiCall = "https://api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
     console.log(city)
     let queryURL = apiCall + burrito + "&appid=" + apiKey
     $.ajax({
@@ -41,6 +40,7 @@ function getLatLon(burrito) {
 // getLatLon();
 
 function performNasaCall(enchilada1, enchilada2, enchilada3) {
+    let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
     let nasaURL = "https://api.nasa.gov/planetary/earth/assets?lon=" + enchilada2 + "&lat=" + enchilada1 + "&date=" + date + "&&dim=0.50&api_key=" + nasaAPI; //date format - YYYY/MM/DD
     $.ajax({
         url: nasaURL,
