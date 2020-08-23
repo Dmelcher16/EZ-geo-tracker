@@ -20,7 +20,7 @@ $("#searchBtn").on("click", function () {
 
 function getLatLon(burrito) {
     console.log(city)
-    let queryURL = apiCall + burrito + "&appid=" + apiKey
+    let queryURL = apiCall + "?q=" + burrito + "&appid=" + apiKey
     $.ajax({
         url: queryURL,
         method: "GET",
