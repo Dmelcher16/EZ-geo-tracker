@@ -2,8 +2,11 @@ let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
 let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
 let apiCall = "http://api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
 let date = moment().format('YYYY' + '-' + 'MM' + '-' + 'DD')
-let UTC = moment.utc().valueOf()
-console.log(UTC)
+
+// let UTC = moment.utc().valueOf()
+// console.log(UTC)
+
+
 console.log(date)
 let hM = document.createElement('map.js');
 hM.src = "./map.js"
@@ -29,19 +32,22 @@ function getLatLon(burrito) {
         let latitude = response.city.coord.lat;
         let longitude = response.city.coord.lon;
         let population = response.city.population;
-        let timeZone = response.city.timezone;
+
+        // let timeZone = response.city.timezone;
+
+        
         mLat = latitude;
         mLon = longitude;
         //   console.log(population);
         //   console.log(latitude);
         //   console.log(longitude);
-        performNasaCall(latitude, longitude, population, timeZone);
+        performNasaCall(latitude, longitude, population);
     })
 };
 
 // getLatLon();
 
-function performNasaCall(enchilada1, enchilada2, enchilada3, enchilada4) {
+function performNasaCall(enchilada1, enchilada2, enchilada3) {
     let nasaURL = "https://api.nasa.gov/planetary/earth/assets?lon=" + enchilada2 + "&lat=" + enchilada1 + "&date=" + date + "&&dim=0.50&api_key=" + nasaAPI; //date format - YYYY/MM/DD
     $.ajax({
         url: nasaURL,
@@ -52,13 +58,19 @@ function performNasaCall(enchilada1, enchilada2, enchilada3, enchilada4) {
         let lanSatDateTime = response.date.slice(0, 10) + " at " +
             response.date.slice(11, 19);
         let pop = enchilada3;
-        let LT = UTC += (enchilada4 * 1000)
-        let localTime = moment().startOf('day').add(LT).format('h:mm a')
-        console.log(LT)
-        console.log(localTime)
+
+        // let LT = UTC += (enchilada4 * 1000)
+        // let localTime = moment().startOf('day').add(LT).format('h:mm a')
+        // console.log(LT)
+        // console.log(localTime)
+
+
         console.log(lanSatURL);
-        buildLanSatImg(lanSatURL, lanSatDateTime, pop, localTime);
-        seconds(LT)
+        buildLanSatImg(lanSatURL, lanSatDateTime, pop);
+
+        // seconds(LT)
+
+
         console.log(enchilada3);
         console.log(pop);
     })
@@ -69,14 +81,17 @@ $(document).ajaxStop(function(){
     resize();
  });
 
-function buildLanSatImg(quesadilla1, quesadilla2, quesadilla3, quesadilla4) {
+function buildLanSatImg(quesadilla1, quesadilla2, quesadilla3) {
     $("#lanSatImgHolder").html('');
     $(".image").html('');
     $("#stats").html('');
     $("#lanSatImgHolder").append("<img id=satImg src=" + quesadilla1 + ">");
     $(".image").append("<img id=satImg src=" + quesadilla1 + ">");
     $("#lanSatImgHolder").append("<p>" + "Image taken : " + quesadilla2 + "</p>");
-    $("#stats").append("<p>" + "Current Local Time: " + quesadilla4 + "</p>");
+
+    // $("#stats").append("<p>" + "Current Local Time: " + quesadilla4 + "</p>");
+
+    
     $("#stats").append("<p>" + "Population : " + quesadilla3 + "</p>");
 
     getMap(mLat, mLon);
