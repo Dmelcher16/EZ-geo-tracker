@@ -1,5 +1,5 @@
-let apiKey = "93b75b830f3da96083a3b6252ba8705b"; //API KEY FOR WEATHER DATA
-let nasaAPI = "irUwmwRn4hX38ufW6j4F6Vln3GgkMqD9ZfWGlXBg"; //API KEY FOR NASA "EARTH" API
+let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
+let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
 let apiCall = "http://api.openweathermap.org/data/2.5/forecast?q="; //API CALL BASED ON CITY NAME
 let date = moment().format('YYYY' + '-' + 'MM' + '-' + 'DD')
 let UTC = moment.utc().valueOf()
