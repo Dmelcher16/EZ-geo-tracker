@@ -1,5 +1,5 @@
-let apiKey = "beec6cc5881d930f74eb86a67a7a1dae"; //API KEY FOR WEATHER DATA
-let nasaAPI = "0XQbhctwQoswCaA4cSRpTVQqurJiqw1yI3vidInC"; //API KEY FOR NASA "EARTH" API
+let apiKey = "cde6e7ed8dd3dfb61fc5f92d27166516"; //API KEY FOR WEATHER DATA
+let nasaAPI = "Tlt6VK4If16USNBKSmlTlU3FDxryPtS1znwrbL3y"; //API KEY FOR NASA "EARTH" API
 let apiCall = "https://api.openweathermap.org/data/2.5/forecast?q=" //API CALL BASED ON CITY NAME
 let date = moment().format('YYYY' + '-' + 'MM' + '-' + 'DD')
 console.log(date)
@@ -11,7 +11,7 @@ let mLat, mLon;
 
 
 $("#searchBtn").on("click", function () {
-    event.preventDefault();
+    e.preventDefault();
     let cityString = $("#city").val();
     getLatLon(cityString);
 });

@@ -21,7 +21,7 @@ function setMapViewBounds(map, lat, long) {
 //Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  apikey: "lZJH8sp0pz0p3b0n6IcmBXC6swBQWkeam3I5GT90PGU"
+  apikey: "8fGMFEdYPOOkzxOSCqrwGRWeaYS02iSxd1XJEIE5_Qc"
 });
 var defaultLayers = platform.createDefaultLayers();
 
@@ -46,5 +46,6 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 function getMap(lat, lon) {
   console.log("rcvd coords" + lat + lon)
   setMapViewBounds(map, lat, lon);
-
+  simulateClick();
 }
+
